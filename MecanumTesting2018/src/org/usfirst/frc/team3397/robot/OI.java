@@ -7,6 +7,10 @@
 
 package org.usfirst.frc.team3397.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -39,4 +43,30 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	XboxController driveStick;
+	Joystick operatorStick;
+	
+	public void controlScheme(int drivePort, int operatePort) {
+		driveStick = new XboxController(drivePort);
+		operatorStick = new Joystick(operatePort);
+	}
+	
+	public double getForward() {
+		return driveStick.getY(Hand.kLeft);
+	}
+	
+	public double getStrafe() {
+		return driveStick.getX(Hand.kLeft);
+	}
+	
+	public double getTurn() {
+		return driveStick.getX(Hand.kRight);
+	}
+	
+	public boolean getTurbo() {
+		return driveStick.getTriggerAxis(Hand.kLeft) >= 0.5;
+	}
+	
 }
+
