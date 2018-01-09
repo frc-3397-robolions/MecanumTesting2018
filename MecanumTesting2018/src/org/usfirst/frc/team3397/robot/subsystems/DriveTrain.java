@@ -12,7 +12,7 @@ public class DriveTrain {
 	OI controlScheme = new OI(0, 1);
 	
 	public DriveTrain(VictorSP frontLeft, VictorSP frontRight, VictorSP backLeft, VictorSP backRight) {
-		chassis = new MecanumDrive(robotLayout.getFrontLeftMotor(), robotLayout.getFrontRightMotor(), robotLayout.getBackLeftMotor(), robotLayout.getBackRightMotor());
+		chassis = new MecanumDrive(frontLeft, frontRight, backLeft, backRight);
 	}
 	
 	
