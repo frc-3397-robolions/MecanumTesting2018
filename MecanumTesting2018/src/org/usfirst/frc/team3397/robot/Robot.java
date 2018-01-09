@@ -10,6 +10,7 @@ package org.usfirst.frc.team3397.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team3397.robot.subsystems.DriveTrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,6 +24,8 @@ public class Robot extends IterativeRobot {
 	private static final String kCustomAuto = "My Auto";
 	private String m_autoSelected;
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
+	RobotLayout robotLayout = new RobotLayout();
+	DriveTrain robotDrive = new DriveTrain(robotLayout.getFrontLeftMotor(), robotLayout.getFrontRightMotor(), robotLayout.getBackLeftMotor(), robotLayout.getBackRightMotor());
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -75,6 +78,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		robotDrive.MecanumDrive();
 	}
 
 	/**
