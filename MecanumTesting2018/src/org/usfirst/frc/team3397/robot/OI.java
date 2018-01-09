@@ -47,7 +47,7 @@ public class OI {
 	XboxController driveStick;
 	Joystick operatorStick;
 	
-	public void controlScheme(int drivePort, int operatePort) {
+	public OI(int drivePort, int operatePort) {
 		driveStick = new XboxController(drivePort);
 		operatorStick = new Joystick(operatePort);
 	}
